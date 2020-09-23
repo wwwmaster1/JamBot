@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta name="viewport" content="width=device-width, user-scalable=no" />
+
+	<title>JamBot jQuery Simple Modal (Key Matrix)</title>
+	<!-- This page is an experimental model for a modal control center panel that is elegant and easy to use while playing an instrument. -->
+	<!-- Potential improvements to this panel:  	-->
+	<!--  - slide screen for additional settings  	-->
+	<!--  	- Set mode (mixolydian)  				-->
+	<!--  	- Back up mode (lydian > maj > 5 > 1) 	-->
+	<!--  	- Set tempo (faster/slower) 			-->
+	<!--  	- computer keyboard control 			-->
+	<!--  	- select/find a song (based on current?)-->
+
+	<link rel="shortcut icon" type="image/png" href="jambot_120x120.png"/>
+	<link rel="stylesheet" type="text/css" href="fullpage.css" />
+	
+	<script type="text/javascript">
+		
+	// Set the Jam ID to a unique value - in this case anyone loading the URL of this page will be bound to this id...
+	var jam = 0;
+	
+	// Set the frequency with which to poll the server to get current section (via url below)
+	// currently not needed, and this page only sets the value.
+	// var freq = 2000;
+		
+	// Set FullPage License Key
+	// currently not needed, and this page only sets the value.
+	// var fPlicense = 'BF4C8E18-79194743-9F8C6481-DABD438D';
+		
+	// Set meeiot Key Value Token
+	var meeItoken = '58fb63a0475ef7cd5dc324ad7b31214f7a480e991e6b9886dd2332';
+		
+	// Specify URL to set section on change - the section id will append to this url
+	var setSectionURL = "https://meeiot.org/put/" + meeItoken + "/" + jam + "=";
+	// was: setSectionURL = "jambot.cfm?jam=" + jam + "&section=";
+		
+	// Specify URL to poll to get current section
+	// currently not needed, and this page only sets the value.
+	// var getSectionURL = "https://meeiot.org/get/" + meeItoken + "/" + jam;
+	// was: getSectionURL = "jambot.cfm?jam=" + jam;
+		
+	</script>
+	
+    <style>
+
+		a.Show-All-Keys {
+		  display: inline-block;
+		  padding: 10px 15px;
+		  border: 2px solid #000;
+		  text-transform: uppercase;
+		  letter-spacing: 0.015em;
+		  font-size: 18px;
+		  font-weight: 600;
+		  line-height: 1;
+		  color: #000;
+		}
+
+		/*************
+			 Modal
+		*************/
+		.Modal {
+		  height: 100%;
+		  width: 100%;
+		  position: fixed;
+		  top: 0;
+		  bottom: 0;
+		  left: 0;
+		  right: 0;
+		  margin: auto;
+		  background: rgba(142,68,173,.9)  ;
+		  z-index: 9999;
+		  color:#fff;
+		}
+
+		.Modal .Close {
+		  position: absolute;
+		  top: 15px;
+		  right: 15px;
+		  z-index: 999;
+		  cursor: pointer;
+		  fill: #fff;
+		}
+		
+		.Modal .Close img {
+		  fill: #fff;
+		}
+
+	</style>
+</head>
+<body>
+    <a class="Show-All-Keys" href="#">All Keys</a><BR><BR><BR><BR><BR>
+    <a class="" href="index.html">back</a>
+  
+ <div class="Modal">
+    <div class="Close"><img src="Close.svg" height="60px" width="60px;" style="fill: white" /></div>
+	<style>
+	.Modal, .key-container {
+	  display: table;
+	  background-color: #333;
+	  margin: 0;
+	  padding: 0;
+	  overflow: none;
+	}
+
+	.key-container > li {
+	  display: table-cell;
+	  background-color: #555;
+	  width: 14.5vw;
+	  height: 22vh;
+	  text-align: center;
+	  line-height: 21vh;
+	  font-size: calc(2.5vw + 1.5vh);
+	  margin: 1vw 0 0 1vw;
+	  float: left;
+	  border-radius:5vw;
+	}
+
+	.key-container > li:nth-child(3),
+	.key-container > li:nth-child(7),
+	.key-container > li:nth-child(9),
+	.key-container > li:nth-child(13),
+	.key-container > li:nth-child(17),
+	.key-container > li:nth-child(19),
+	.key-container > li:nth-child(23) {
+	  background-color: #3f5f50;
+	}
+
+	.key-container a {text-decoration: none; color: #fff;}
+
+
+	</style>
+
+	<ul class="key-container">
+		<li data-menuanchor="P22"><a href="javascript: setScreen(23);">A♭</a></li>
+		<li data-menuanchor="P23"><a href="javascript: setScreen(24);">A♭m</a></li>
+		<li data-menuanchor="P1"><a href="javascript: setScreen(1);">A</a></li>
+		<li data-menuanchor="P2"><a href="javascript: setScreen(2);">Am</a></li>
+		<li data-menuanchor="P3"><a href="javascript: setScreen(3);">A#</a></li>
+		<li data-menuanchor="P4"><a href="javascript: setScreen(4);">A#m</a></li>
+		<li data-menuanchor="P5"><a href="javascript: setScreen(5);">B</a></li>
+		<li data-menuanchor="P6"><a href="javascript: setScreen(6);">Bm</a></li>
+		<li data-menuanchor="P7"><a href="javascript: setScreen(7);">C</a></li>
+		<li data-menuanchor="P8"><a href="javascript: setScreen(8);">Cm</a></li>
+		<li data-menuanchor="P9"><a href="javascript: setScreen(9);">C#</a></li>
+		<li data-menuanchor="P10"><a href="javascript: setScreen(10);">C#m</a></li>
+		<li data-menuanchor="P11"><a href="javascript: setScreen(11);">D</a></li>
+		<li data-menuanchor="P12"><a href="javascript: setScreen(12);">Dm</a></li>
+		<li data-menuanchor="P13"><a href="javascript: setScreen(13);">D#</a></li>
+		<li data-menuanchor="P14"><a href="javascript: setScreen(14);">D#m</a></li>
+		<li data-menuanchor="P15"><a href="javascript: setScreen(15);">E</a></li>
+		<li data-menuanchor="P16"><a href="javascript: setScreen(16);">Em</a></li>
+		<li data-menuanchor="P17"><a href="javascript: setScreen(17);">F</a></li>
+		<li data-menuanchor="P18"><a href="javascript: setScreen(18);">Fm</a></li>
+		<li data-menuanchor="P19"><a href="javascript: setScreen(19);">F#</a></li>
+		<li data-menuanchor="P20"><a href="javascript: setScreen(20);">F#m</a></li>
+		<li data-menuanchor="P21"><a href="javascript: setScreen(21);">G</a></li>
+		<li data-menuanchor="P22"><a href="javascript: setScreen(22);">Gm</a></li>
+	</ul>
+ </div>
+
+<script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){
+  $(".Modal").hide();
+    $(".Show-All-Keys").click(function(){
+      $(".Modal").fadeToggle();
+    });
+    $(".Close").click(function(){
+      $(".Modal").fadeOut();
+    });
+});
+
+// Esc Key, hide menu.
+$(document).keydown(function(e) {
+if(e.keyCode == 27) {
+    $(".Modal").hide(300);
+}
+});
+
+function setScreen(toScreen){
+	var iReq = new XMLHttpRequest();
+	var jam = 0
+	iReq.open("GET", setSectionURL + toScreen);
+	iReq.send();
+	$(".Modal").hide(300);
+}
+			
+</script>
+
+</body>
+</html>

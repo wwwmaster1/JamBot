@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta name="viewport" content="width=device-width, user-scalable=no" />
+
+	<title>JamBot Basic Keys + Some Cues</title>
+
+	<link rel="shortcut icon" type="image/png" href="jambot_120x120.png"/>
+	<link rel="stylesheet" type="text/css" href="fullpage.css" />
+	
+	<script type="text/javascript">
+
+		// Set the Jam ID to a unique value - in this case anyone loading the URL of this page will be bound to this id...
+		var jam = 0;
+
+		// Set the frequency with which to poll the server to get current section (via url below)
+		var freq = 5000;
+
+		// Set FullPage License Key
+		var fPlicense = 'BF4C8E18-79194743-9F8C6481-DABD438D';
+
+		// Set meeiot Key Value Token
+		var meeItoken = '58fb63a0475ef7cd5dc324ad7b31214f7a480e991e6b9886dd2332';
+
+		// Specify URL to set section on change - the section id will append to this url
+		var setSectionURL = "https://meeiot.org/put/" + meeItoken + "/" + jam + "=";
+		// was: setSectionURL = "jambot.cfm?jam=" + jam + "&section=";
+
+		// Specify URL to poll to get current section
+		var getSectionURL = "https://meeiot.org/get/" + meeItoken + "/" + jam;
+		// was: getSectionURL = "jambot.cfm?jam=" + jam;
+
+	</script>
+	
+	<style>
+
+	/* Style for our header text
+	* --------------------------------------- */
+	h1{
+		font-size: 15vw;
+		font-family: arial,helvetica;
+		color: #fff;
+		margin: 2vh 0 2vh 0;
+		padding:0;
+	}
+	h2{
+		font-size: 10vw;
+		font-family: arial,helvetica;
+		color: rgba(255,255,255,.3);
+		margin: 1vh 0 5vh 0;
+		padding:0;
+	}
+	h3{
+		font-size: 2.5vw;
+		font-family: arial,helvetica;
+		color: #fff;
+		margin: 1vh 0 3vh 0;
+		padding:0;
+	}
+
+	/* Menu on Mobile
+	* --------------------------------------- */
+	
+	@media only screen 
+	and (min-device-width : 375px) 
+	and (max-device-width : 812px) 
+	and (-webkit-device-pixel-ratio : 3)
+	and (orientation : portrait) {
+		#menu li {width: 16vw;height: 6vw;font-size: 4vw;}
+		#menu li a,#menu li.active a {padding: .6vw 1.3vw;}
+	}
+	
+	</style>
+</head>
+<body>
+
+<!-- Blink Layer - Blinks on change to alert band members -->
+<div id="blink" style="position: fixed; top:0; width: 100%; height: 100%; background-image: url('http://69.63.128.21/FC7CE9/assets/images//blink.gif'); background-repeat: repeat; z-index: 100; display: none;">&nbsp;</div>
+
+<!-- X at the top closes out and goes to main menu/index -->
+<div id="close" style="position: fixed; top: 0vw; right: 2vw; z-index: 999;"><A href="javascript:window.location='index.html';" style="font-size:7vw; font-family:Menlo,monospace; color: rgba(255,255,255,.2); text-decoration: none; line-height: 8vw;">X</A></div>
+
+<!-- NOTE:  Fullpage API has a quirk in that in some functions [ex: moveTo()] it begins count for the first SECTION as 1, whereas in others [ex: getActiveSection()] it begins at 0. 	-->
+<!-- 		Therefore, in some functions we must count an offset of 1 																													-->
+<ul id="menu">
+	<li data-menuanchor="P1"><a href="javascript: fullpage_api.moveTo(1);">A</a></li>
+	<li data-menuanchor="P2"><a href="javascript: fullpage_api.moveTo(2);">Am</a></li>
+	<li data-menuanchor="P3"><a href="javascript: fullpage_api.moveTo(3);">A#</a></li>
+	<li data-menuanchor="P4"><a href="javascript: fullpage_api.moveTo(4);">A#m</a></li>
+	<li data-menuanchor="P5"><a href="javascript: fullpage_api.moveTo(5);">B</a></li>
+	<li data-menuanchor="P6"><a href="javascript: fullpage_api.moveTo(6);">Bm</a></li>
+	<li data-menuanchor="P7"><a href="javascript: fullpage_api.moveTo(7);">C</a></li>
+	<li data-menuanchor="P8"><a href="javascript: fullpage_api.moveTo(8);">Cm</a></li>
+	<li data-menuanchor="P9"><a href="javascript: fullpage_api.moveTo(9);">C#</a></li>
+	<li data-menuanchor="P10"><a href="javascript: fullpage_api.moveTo(10);">C#m</a></li>
+	<li data-menuanchor="P11"><a href="javascript: fullpage_api.moveTo(11);">D</a></li>
+	<li data-menuanchor="P12"><a href="javascript: fullpage_api.moveTo(12);">Dm</a></li>
+	<li data-menuanchor="P13"><a href="javascript: fullpage_api.moveTo(13);">D#</a></li>
+	<li data-menuanchor="P14"><a href="javascript: fullpage_api.moveTo(14);">D#m</a></li>
+	<li data-menuanchor="P15"><a href="javascript: fullpage_api.moveTo(15);">E</a></li>
+	<li data-menuanchor="P16"><a href="javascript: fullpage_api.moveTo(16);">Em</a></li>
+	<li data-menuanchor="P17"><a href="javascript: fullpage_api.moveTo(17);">F</a></li>
+	<li data-menuanchor="P18"><a href="javascript: fullpage_api.moveTo(18);">Fm</a></li>
+	<li data-menuanchor="P19"><a href="javascript: fullpage_api.moveTo(19);">F#</a></li>
+	<li data-menuanchor="P20"><a href="javascript: fullpage_api.moveTo(20);">F#m</a></li>
+	<li data-menuanchor="P21"><a href="javascript: fullpage_api.moveTo(21);">G</a></li>
+	<li data-menuanchor="P22"><a href="javascript: fullpage_api.moveTo(22);">Gm</a></li>
+	<li data-menuanchor="P23"><a href="javascript: fullpage_api.moveTo(23);">G#</a></li>
+	<li data-menuanchor="P24"><a href="javascript: fullpage_api.moveTo(24);">G#m</a></li>
+	<li data-menuanchor="P25"><a href="javascript: fullpage_api.moveTo(25);">Faster</a></li>
+	<li data-menuanchor="P26"><a href="javascript: fullpage_api.moveTo(26);">Slower</a></li>
+	<li data-menuanchor="P27"><a href="javascript: fullpage_api.moveTo(27);">Reggae</a></li>
+	<li data-menuanchor="P28"><a href="javascript: fullpage_api.moveTo(28);">Funk</a></li>
+	<li data-menuanchor="P29"><a href="javascript: fullpage_api.moveTo(29);">Soft</a></li>
+	<li data-menuanchor="P30"><a href="javascript: fullpage_api.moveTo(30);">Heavy</a></li>
+	<li data-menuanchor="P31"><a href="javascript: fullpage_api.moveTo(31);">Ambient</a></li>
+	<li data-menuanchor="P32"><a href="javascript: fullpage_api.moveTo(32);">Solos</a></li>
+	<li data-menuanchor="P33"><a href="javascript: fullpage_api.moveTo(33);">Guitar</a></li>
+	<li data-menuanchor="P34"><a href="javascript: fullpage_api.moveTo(34);">Drum</a></li>
+	<li data-menuanchor="P35"><a href="javascript: fullpage_api.moveTo(35);">Bass</a></li>
+	<li data-menuanchor="P36"><a href="javascript: fullpage_api.moveTo(36);">Keys</a></li>
+	<li data-menuanchor="P37"><a href="javascript: fullpage_api.moveTo(37);">End</a></li>
+	<li><a href="javascript: fullpage_api.moveTo(Math.floor((Math.random() * 24)));">Rand</a></li>	
+</ul>	
+<div id="fullpage">
+	<div class="section">
+	    <div class="slide">
+			<h1>A major</h1>
+			<h2>F# minor</h2>
+		</div>
+	</div>
+	<div class="section">
+	    <div class="slide">
+			<h1>A minor</h1>
+			<h2>C major</h2>
+		</div>
+	</div>
+	<div class="section">
+	    <div class="slide">
+			<h1>A# major</h1>
+			<h2>G minor</h2>
+		</div>
+	</div>
+	<div class="section">
+	    <div class="slide">
+			<h1>A# minor</h1>
+			<h2>C# major</h2>
+		</div>
+	</div>
+	<div class="section">
+	    <div class="slide">
+			<h1>B major</h1>
+			<h2>G# minor</h2>
+		</div>
+	</div>
+	<div class="section">
+	    <div class="slide">
+			<h1>B minor</h1>
+			<h2>D major</h2>
+		</div>
+	</div>
+	<div class="section">
+	    <div class="slide">
+			<h1>C major</h1>
+			<h2>A minor</h2>
+		</div>
+	</div>
+	<div class="section">
+	    <div class="slide">
+			<h1>C minor</h1>
+			<h2>D# major</h2>
+		</div>
+	</div>
+	<div class="section">
+	    <div class="slide">
+			<h1>C# major</h1>
+			<h2>A# minor</h2>
+		</div>
+	</div>
+	<div class="section">
+	    <div class="slide">
+			<h1>C# minor</h1>
+			<h2>E major</h2>
+		</div>
+	</div>
+	<div class="section">
+	    <div class="slide">
+			<h1>D major</h1>
+			<h2>B minor</h2>
+		</div>
+	</div>
+	<div class="section">
+	    <div class="slide">
+			<h1>D minor</h1>
+			<h2>F major</h2>
+		</div>
+	</div>
+	<div class="section">
+	    <div class="slide">
+			<h1>D# major</h1>
+			<h2>C minor</h2>
+		</div>
+	</div>
+	<div class="section">
+	    <div class="slide">
+			<h1>D# minor</h1>
+			<h2>C major</h2>
+		</div>
+	</div>
+	<div class="section">
+	    <div class="slide">
+			<h1>E major</h1>
+			<h2>C# minor</h2>
+		</div>
+	</div>
+	<div class="section">
+	    <div class="slide">
+			<h1>E minor</h1>
+			<h2>G major</h2>
+		</div>
+	</div>
+	<div class="section">
+	    <div class="slide">
+			<h1>F major</h1>
+			<h2>D minor</h2>
+		</div>
+	</div>
+	<div class="section">
+	    <div class="slide">
+			<h1>F minor</h1>
+			<h2>G# major</h2>
+		</div>
+	</div>
+	<div class="section">
+	    <div class="slide">
+			<h1>F# major</h1>
+			<h2>D# minor</h2>
+		</div>
+	</div>
+	<div class="section">
+	    <div class="slide">
+			<h1>F# minor</h1>
+			<h2>A major</h2>
+		</div>
+	</div>
+	<div class="section">
+	    <div class="slide">
+			<h1>G major</h1>
+			<h2>E minor</h2>
+		</div>
+	</div>
+	<div class="section">
+	    <div class="slide">
+			<h1>G minor</h1>
+			<h2>A# major</h2>
+		</div>
+	</div>
+	<div class="section">
+	    <div class="slide">
+			<h1>G# major</h1>
+			<h2>F minor</h2>
+		</div>
+	</div>
+	<div class="section">
+	    <div class="slide">
+			<h1>G# minor</h1>
+			<h2>B major</h2>
+		</div>
+	</div>
+	<div class="section">
+	    <div class="slide">
+			<h1>Speed Up</h1>
+		</div>
+	</div>
+	<div class="section">
+	    <div class="slide">
+			<h1>Slow Down</h1>
+		</div>
+	</div>
+	<div class="section">
+	    <div class="slide">
+			<h1>Reggae</h1>
+		</div>
+	</div>
+	<div class="section">
+	    <div class="slide">
+			<h1>Get Funky</h1>
+		</div>
+	</div>
+	<div class="section">
+	    <div class="slide">
+			<h1>Softer</h1>
+		</div>
+	</div>
+	<div class="section">
+	    <div class="slide">
+			<h1>Heavier</h1>
+		</div>
+	</div>
+	<div class="section">
+	    <div class="slide">
+			<h1>Ambient</h1>
+			<h3>Make it trippy, loopy.<BR>Then build it back up.</h3>
+		</div>
+	</div>
+	<div class="section">
+	    <div class="slide">
+			<h2>Take Turns Soloing</h2>
+			<h3>Play 2 Bars, Then Solo 2 bars<BR>Go around the room clockwise.</h3>
+		</div>
+	</div>
+	<div class="section">
+	    <div class="slide">
+			<h1>Guitar Solo</h1>
+			<h3>Give the Guitars Some space</h3>
+		</div>
+	</div>
+	<div class="section">
+	    <div class="slide">
+			<h1>Drum Solo</h1>
+			<h3>Give the Drums Some space</h3>
+		</div>
+	</div>
+	<div class="section">
+	    <div class="slide">
+			<h1>Bass Solo</h1>
+			<h3>Give the Bass Some space</h3>
+		</div>
+	</div>
+	<div class="section">
+	    <div class="slide">
+			<h1>Keys Solo</h1>
+			<h3>Give the Keys Some space</h3>
+		</div>
+	</div>
+	<div class="section">
+	    <div class="slide">
+			<h1>End The Song</h1>
+		</div>
+	</div>
+</div>
+	
+<script type="text/javascript" src="fullpage.js"></script>
+
+<script type="text/javascript">
+	
+	// Initialize Fullpage.js
+    var myFullpage = new fullpage('#fullpage', {
+		anchors: ['P1','P2','P3','P4','P5','P6','P7','P8','P9','P10','P11','P12','P13','P14','P15','P16','P17','P18','P19','P20','P21','P22','P23','P24','P25','P26','P27','P28','P29','P30','P31','P32','P33','P34','P35','P36','P37'],
+        menu: '#menu',
+		licenseKey: fPlicense,
+		// specify the function to run when leaving a vertical section
+		// this will hit the url to change the value in the key-value store
+		onLeave: function(origin, destination, direction){
+			//console.log("Starting Section(a): " + fullpage_api.getActiveSection().index);
+			//console.log("Starting Section(o): " + origin.index);
+			//console.log("Going to Section: " + destination.index);
+			if (typeof theInterval !== 'undefined') {
+				// first clear the polling if it is running
+				clearInterval(theInterval);
+			}
+			// set the new value
+			// after waiting a second.
+			setTimeout(function(){
+				var iReq = new XMLHttpRequest();
+				iReq.open("GET", setSectionURL + destination.index);
+				iReq.send();
+			}, 1000);
+			// then run the polling again
+			theInterval = setInterval(getUpdates,freq);
+		}
+	});
+
+	// set the screen to the proper section.
+	// the blink function is also in here.
+	function gotoSection () {
+	  //console.log("Currently at: " + fullpage_api.getActiveSection().index);
+	  //console.log("Server Says: " + this.responseText);
+	  if (fullpage_api.getActiveSection().index != this.responseText){
+		  fullpage_api.moveTo(this.responseText);
+		  document.getElementById("blink").style.display = "inline";
+		  setTimeout(function(){document.getElementById("blink").style.display = "none"}, 1000);
+	  }
+	  //window.location.href = "#"+this.responseText;
+	}
+
+	// poll the key-value store for the current section value
+	function getUpdates () {
+		var oReq = new XMLHttpRequest();
+		oReq.addEventListener("load", gotoSection);
+		oReq.open("GET", getSectionURL);
+		oReq.send();
+	}	
+	
+	// run the getupdate function once when the page loads to immediately set the correct screen.
+	getUpdates();
+	
+	// then set an interval to poll for updates at a regular frequency
+	var theInterval = setInterval(getUpdates,freq);
+	
+	// the user agent string form my TV to keep the menu from showing.
+	if(navigator.userAgent.toLowerCase().indexOf('/4.0 focus/') > -1){
+		document.getElementById("menu").style.display = "none";
+		//setTimeout(function(){window.location.reload(1);},300000);
+	}
+		
+</script>
+				
+</body>
+</html>

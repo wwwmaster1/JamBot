@@ -1,0 +1,72 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+<title>JamBot</title>
+	<style>
+	body{margin: 4vw 10vw;font-size:4vw;font-family: "AppleSDGothicNeo-Light",Gotham,"sans-serif";color:teal}a{color:teal;text-decoration:none;}
+	li{margin-bottom:4vh;}
+	
+	ol {
+    counter-reset: li; /* Initiate a counter */
+    list-style: none; /* Remove default numbering */
+    *list-style: decimal; /* Keep using default numbering for IE6/7 */
+    font: 2.8vh 'trebuchet MS', 'lucida sans';
+    padding: 0;
+    margin-bottom: 1vh;
+    text-shadow: 0 1px 0 rgba(255,255,255,.5);
+	}
+
+	.rounded-list a{
+		position: relative;
+		display: block;
+		padding: .4vw .4vw .4em 2em;
+		*padding: .4em;
+		margin: .5em 0;
+		background: #ddd;
+		color: #444;
+		text-decoration: none;
+		border-radius: .3em;
+		transition: all .3s ease-out;   
+	}
+
+	.rounded-list a:hover{
+		background: #eee;
+	}
+
+	.rounded-list a:hover:before{
+		transform: rotate(360deg);  
+	}
+
+	.rounded-list a:before{
+		content: counter(li);
+		counter-increment: li;
+		position: absolute; 
+		left: -1.3em;
+		top: 50%;
+		margin-top: -1.3em;
+		background: #87ceeb;
+		height: 2em;
+		width: 2em;
+		line-height: 2em;
+		border: .3em solid #fff;
+		text-align: center;
+		font-weight: bold;
+		border-radius: 2em;
+		transition: all .3s ease-out;
+	}
+
+	</style>
+	<link rel="apple-touch-icon" href="jambot_120x120.png">
+	<link rel="shortcut icon" type="image/png" href="jambot_120x120.png"/>
+	<meta name="apple-mobile-web-app-capable" content="yes">
+</head>
+<body>
+	<ol class="rounded-list">
+		<li><a href="javascript:window.location='Basic.html';">Basic Keys + Some Cues</a></li>
+		<li><a href="javascript:window.location='jQmodal.html';">jQuery Modal (key matrix experiment)</a></li>
+		<li><a href="javascript:window.location='debug.html';">Debug</a></li>		
+	</ol>
+</body>
+</html>
