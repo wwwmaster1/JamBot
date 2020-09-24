@@ -1,7 +1,7 @@
 ![jamBot Screen Grabs](jambot_Screenshots.png)
 
 # JamBot
-### It's hard to communicate while jamming. JamBot helps musicians speak a universal (but silent) language.
+#### It's hard to communicate while jamming. JamBot helps musicians speak a universal (but silent) language.
 
 ![jamBot Logo](jambot_120x120.png) 
 
