@@ -26,7 +26,7 @@ The viewing devices don't necessarily need to be the controlling devices. For in
 ## Instructions
 
 1. Get a Token from https://meeiot.org/?p=start.php
-2. Fork this REPO and fill in the token value.
+2. Clone this REPO and fill in the token value on the basic HTML page (or any controller page).
 
 Suggested:
 
