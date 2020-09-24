@@ -1,7 +1,9 @@
-![jamBot Logo](jambot_120x120.png)
+![jamBot Screen Grabs](jambot_Screenshots.png)
 
 # JamBot
-It's hard to communicate while jamming. JamBot helps musicians speak a universal (but silent) language.
+### It's hard to communicate while jamming. JamBot helps musicians speak a universal (but silent) language.
+
+![jamBot Logo](jambot_120x120.png) 
 
 ## Overview
 If you're a musician like me and you love to jam (and maybe you're even a hacker, too) then you know how hard it is to communicate ideas while jamming. The music is loud, but too good to interrupt. Your bandmates are in the pocket. But you have that itch to modulate to a minor chord. Or change up the vibe to that reggae feel. Ya Mon.
