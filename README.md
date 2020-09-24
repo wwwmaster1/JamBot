@@ -1,3 +1,5 @@
+![jamBot Logo](jambot_120x120.png)
+
 # JamBot
 It's hard to communicate while jamming. JamBot helps musicians speak a universal (but silent) language.
 
@@ -9,10 +11,10 @@ Or maybe that's not you. Perhaps you just want a nice way to organize your own n
 Or, you're a music teacher and want to communicate your notes to the class. Or whatever!
 
 ## How it works
-Using the KISS method, this runs in a browser (for now) and is based on pure HTML + JavaScript + CSS. It uses the awesome [FullPage.js](https://github.com/alvarotrigo/fullPage.js) library by [Alvaro Trigo](https://alvarotrigo.com/) (thanks Alvaro!) which allows you to have multiple vertical and horizontal "FullPage" screens, and it is dependent on some kind of key-value store to keep track of the current screen, which is syncronized across any devices that have loaded the same page or a page with the same JamID. It is meant to be run on tablets, phones, TVs, laptops and anything else that supports a modern browser. Hopefully it will work on assistive devices too.
+Using the KISS method, this runs in a browser (for now) and is based on pure HTML + JavaScript + CSS. It uses the awesome [FullPage.js](https://github.com/alvarotrigo/fullPage.js) library by [Alvaro Trigo](https://alvarotrigo.com/) (thanks @alvarotrigo!) which allows you to have multiple vertical and horizontal "FullPage" screens, and it is dependent on some kind of key-value store to keep track of the current screen, which is syncronized across any devices that have loaded the same page or a page with the same JamID. It is meant to be run on tablets, phones, TVs, laptops and anything else that supports a modern browser. Hopefully it will work on assistive devices too.
 
 ### The Key-Value Store
-Initially, I set up a very basic ColdFusion (cfm) file that stored the current screen value as a server variable (it's in this repo), but to be less server dependent (and more platform independent), I went looking for a free cloud-based KVS that sports a REST API without authentication, and found https://meeiot.org/ (also available as a [repo](https://github.com/circinusX1/Free-Key-Value-Database). It's not pretty, poorly documented, and has some limitations (like you can't write within a second of reading) but at the time of this push, IT WORKS. There are many other KVS out there that are defunct or not free (keyv, keyvalue.xyz, KVStore.io, openkeyval, kvdb.io).
+Initially, I set up a very basic ColdFusion (cfm) file that stored the current screen value as a server variable (it's in this repo), but to be less server dependent (and more platform independent), I went looking for a free cloud-based KVS that sports a REST API without authentication, and found https://meeiot.org/ (also available as a [repo](https://github.com/circinusX1/Free-Key-Value-Database) by @circinusX1). It's not pretty, poorly documented, and has some limitations (like you can't write within a second of reading) but at the time of this push, IT WORKS. There are many other KVS out there that are defunct or not free (keyv, keyvalue.xyz, KVStore.io, openkeyval, kvdb.io).
 
 If you feel like adding a KVS using another platform, HMU!
 
