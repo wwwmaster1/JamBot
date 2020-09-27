@@ -36,7 +36,7 @@ Suggested:
 ## Improvements
 This is my first public repo, so I'm sure I did many things wrong. Help me out! Additionally, it would be awesome to add some features...
 
-1. Better Navigation
+1. Better Navigation Solutions & Midi Control
 2. Non-Technical Screen Creation (form based)
 3. Standardized Layouts (via JSON or XML) with more info (Key, Mode, Time, Tempo, Style)
 4. Song Library (With Keys, Nashville Numbers or Roman Numeral Format)
@@ -46,6 +46,7 @@ This is my first public repo, so I'm sure I did many things wrong. Help me out! 
 6. Set-List Buider
 7. Delay Counter Overlay (to next action such as modulate key or end the song)
 8. Instrument Mode (shows different data based on instrument - sticking for drummer, chord chart for rhythm guitar, tabs for bass)
+9. Gamification
 
 
 
